@@ -5,11 +5,11 @@ import { UsersModule } from "../users/users.module";
 import { Assignment, AssignmentSchema } from "./assigment.schema";
 import { AssignmentsService } from "./assigment.service";
 import { AssignmentsController } from  "../assignments/assigments.controller"
-import { StudentdAssignmentsController } from "../assignments/student-assignments.controller"
+import { StudentAssignmentsController } from "../assignments/student-assignments.controller";
 
 import { Activity, ActivitySchema } from "../activities/activity.schema";
 import { Submission, SubmissionSchema } from "../submissions/submission.schema";
-
+import { TeacherAssignmentsController } from "./teacher-assignments.controller";
 @Module({
   imports: [
     UsersModule,
@@ -19,7 +19,7 @@ import { Submission, SubmissionSchema } from "../submissions/submission.schema";
       { name: Submission.name, schema: SubmissionSchema },
     ]),
   ],
-  controllers: [AssignmentsController, StudentdAssignmentsController],
+  controllers: [AssignmentsController,StudentAssignmentsController,TeacherAssignmentsController], 
   providers: [AssignmentsService],
   exports: [AssignmentsService],
 })

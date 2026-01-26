@@ -3,7 +3,9 @@ import { Document, Types } from "mongoose";
 
 export type SubmissionDocument = Submission & Document;
 
-@Schema({ timestamps: true }) // ✅ ISSO resolve o problema
+export type AnswerOption = "A" | "B" | "C" | "D" | "E";
+
+@Schema({ timestamps: true })
 export class Submission {
   @Prop({ type: Types.ObjectId, required: true, ref: "Assignment" })
   assignmentId: Types.ObjectId;
@@ -18,13 +20,22 @@ export class Submission {
   teacherId: Types.ObjectId;
 
   @Prop({ type: Object, required: true })
-  answers: Record<string, "A" | "B" | "C" | "D" | "E">;
+  answers: Record<string, AnswerOption>;
 
   @Prop({ type: Number })
   score?: number;
 
   @Prop({ type: Number })
   total?: number;
+
+  // ✅ percentual (0..100)
+  @Prop({ type: Number })
+  percent?: number;
+
+  // ✅ precisa de reforço?
+  @Prop({ type: Boolean })
+  needsReinforcement?: boolean;
 }
 
 export const SubmissionSchema = SchemaFactory.createForClass(Submission);
+SubmissionSchema.index({ assignmentId: 1 }, { unique: true });

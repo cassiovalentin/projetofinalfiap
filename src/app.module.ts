@@ -5,6 +5,9 @@ import { AuthModule } from "./auth/auth.module";
 import { ActivitiesModule } from "./activities/activities.module";
 import { AssignmentsModule } from "./assignments/assigments.module";    
 import { SubmissionsModule } from "./submissions/submissions.module"; 
+import { AdminModule } from "./admin/admin.module";
+import { TeacherModule } from "./teacher/teacher.module";
+import { TeacherClassesModule } from "./teacher/class/teacher-classes.module";
 
 
 
@@ -16,7 +19,10 @@ import { SubmissionsModule } from "./submissions/submissions.module";
     AuthModule,
     ActivitiesModule,
     AssignmentsModule,  
-    SubmissionsModule
+    SubmissionsModule,
+    AdminModule,
+  TeacherModule,
+  TeacherClassesModule,
   ],
 })
 export class AppModule {}
