@@ -10,11 +10,11 @@ import { TeacherModule } from "./teacher/teacher.module";
 import { TeacherClassesModule } from "./teacher/class/teacher-classes.module";
 
 
-
+// MongooseModule.forRoot("mongodb://localhost:27017/escola")
 
 @Module({
   imports: [
-    MongooseModule.forRoot("mongodb://localhost:27017/escola"),
+    MongooseModule.forRoot(process.env.MONGO_URI as string),
     UsersModule,
     AuthModule,
     ActivitiesModule,
