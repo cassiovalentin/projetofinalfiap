@@ -62,4 +62,9 @@ export class UsersService {
     // select +passwordHash
     return this.userModel.findOne({ email }).select("+passwordHash").exec();
   }
+
+  async findByEmail(email: string) {
+  return this.userModel.findOne({ email }).lean().exec();
+}
+
 }

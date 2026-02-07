@@ -8,6 +8,7 @@ import { SubmissionsModule } from "./submissions/submissions.module";
 import { AdminModule } from "./admin/admin.module";
 import { TeacherModule } from "./teacher/teacher.module";
 import { TeacherClassesModule } from "./teacher/class/teacher-classes.module";
+import { SeedModule } from "./seed/seed.module";
 
 
 // MongooseModule.forRoot("mongodb://localhost:27017/escola")
@@ -23,6 +24,7 @@ import { TeacherClassesModule } from "./teacher/class/teacher-classes.module";
     AdminModule,
   TeacherModule,
   TeacherClassesModule,
+  SeedModule,
   ],
 })
 export class AppModule {}
